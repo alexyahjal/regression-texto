@@ -67,9 +67,7 @@ public class FTModel implements Comparable {
     }
 
     /**
-     * No	Test	Reported	Comments
-     *
-     * @return
+     * @return "No","Test","Reported","Comments"
      */
     public List<String> ftModelToListString() {
         List<String> ftModelAsArrayList = new ArrayList<>();

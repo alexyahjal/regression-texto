@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "4c2d3800-f866-4518-9d50-65008b50af04",
+		"name": "Texto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "924852"
+	},
+	"item": [
+		{
+			"name": "Init Suite",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"file\" : \"C:\\\\Users\\\\Alex\\\\Desktop\\\\test.xls\",\r\n        \"suite_name\" : \"Suite Test B\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ft/suite-init",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ft",
+						"suite-init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suite - dump",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"file\" : \"C:\\\\Users\\\\Alex\\\\Desktop\\\\test.xls\",\r\n        \"suite_name\" : \"Suite Test B\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ft/suite-dump",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ft",
+						"suite-dump"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Suite",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"file\" : \"C:\\\\Users\\\\Alex\\\\Desktop\\\\test.xls\",\r\n        \"suite_name\" : \"Suite Test B\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ft/suite-list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ft",
+						"suite-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suite Content",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"suite_name\" : \"Suite Test B\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ft/suite-content",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ft",
+						"suite-content"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -31,19 +31,12 @@ public class FTService {
     public HttpReqModel getSuiteList(HttpReqModel requestModel) {
         logger.info("getSuiteList, " + requestModel);
         try {
-            List<String> suiteList = new ArrayList<>();
-            this.fTRepository.findAll().forEach(
-                    ft -> {
-                        if (!suiteList.contains(ft.getSuiteName())) suiteList.add(ft.getSuiteName());
-                    }
-            );
-            requestModel.setResult(suiteList);
+            requestModel.setResult(fTRepository.findAllSuiteName());
         } catch (Exception e) {
             requestModel.updateError(e.getMessage());
         }
         return requestModel;
     }
-
 
     /**
      * @param requestModel . context . suite_name = suite name
