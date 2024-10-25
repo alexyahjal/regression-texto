@@ -17,9 +17,9 @@ public class FTController {
     FTService fTService;
 
     @GetMapping("/suite-list")
-    public HttpReqModel getAllSuite(@RequestBody HttpReqModel requestModel){
-        logger.info("getAllSuite, " + requestModel);
-        return fTService.getSuiteList(requestModel);
+    public HttpReqModel getAllSuite(){
+        logger.info("getAllSuite");
+        return fTService.getSuiteList();
     }
 
     /**

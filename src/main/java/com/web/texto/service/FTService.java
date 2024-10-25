@@ -26,10 +26,11 @@ public class FTService {
 
 
     /**
-     * @param requestModel
+     *
      */
-    public HttpReqModel getSuiteList(HttpReqModel requestModel) {
-        logger.info("getSuiteList, " + requestModel);
+    public HttpReqModel getSuiteList() {
+        logger.info("getSuiteList");
+        HttpReqModel requestModel = new HttpReqModel();
         try {
             requestModel.setResult(fTRepository.findAllSuiteName());
         } catch (Exception e) {
