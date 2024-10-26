@@ -8,48 +8,45 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "functional_test")
+@Table(name = "cal_log")
 @TableGenerator(
-        name = "functional_testTableGenerator",
+        name = "cal_logTableGenerator",
         allocationSize = 1,
         initialValue = 1
 )
-public class FTModel implements DBModel, Comparable{
+public class CALModel implements DBModel, Comparable {
     @Id
     @GeneratedValue(
             strategy = GenerationType.TABLE,
-            generator = "functional_testTableGenerator")
+            generator = "cal_logTableGenerator")
     private Integer id;
 
-    @Column(length = 4)
-    private String testId;
+    private String type;
 
     @Column(length = 500)
-    private String suiteName;
-
-    @Column(length = 500)
-    private String testName;
+    private String calName;
 
     private String reportedDate;
 
     @Column(length = 2500)
     private String comment;
 
+    private String suiteName;
 
-    public FTModel(){}
 
-    public FTModel(List<String> excelData, String suiteName){
+    public CALModel(){}
+
+    public CALModel(List<String> excelData, String suiteName){
         setModelFromListString(excelData,suiteName);
     }
 
     /**
-     * @return "No","Test","Reported","Comments"
+     * @return "type","calName","Reported","Comments"
      */
-    @Override
-    public List<String> modelToListString(){
+    public List<String> modelToListString() {
         List<String> ftModelAsArrayList = new ArrayList<>();
-        ftModelAsArrayList.add(this.testId);
-        ftModelAsArrayList.add(this.testName);
+        ftModelAsArrayList.add(this.type);
+        ftModelAsArrayList.add(this.calName);
         ftModelAsArrayList.add(this.reportedDate);
         ftModelAsArrayList.add(this.comment);
         return ftModelAsArrayList;
@@ -57,8 +54,8 @@ public class FTModel implements DBModel, Comparable{
 
     @Override
     public void setModelFromListString(List<String> excelData, String suiteName) {
-        this.testId = excelData.get(0);
-        this.testName = excelData.get(1);
+        this.type = excelData.get(0);
+        this.calName = excelData.get(1);
         this.reportedDate = excelData.get(2);
         this.comment = excelData.get(3);
         //
@@ -68,7 +65,7 @@ public class FTModel implements DBModel, Comparable{
     @Override
     public int compareTo(Object o) {
         try {
-            return Integer.parseInt(this.testId) - Integer.parseInt(((FTModel) o).getTestId());
+            return (this.type.equalsIgnoreCase("errors")?1:0) - ( (( (CALModel) o ).getType().equalsIgnoreCase("errors"))?1:0 );
         } catch (Exception e) {
             return 0;
         }

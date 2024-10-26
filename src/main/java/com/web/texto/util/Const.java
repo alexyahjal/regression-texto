@@ -12,4 +12,11 @@ public class Const {
         add("Comments");
     }};
 
+    public static List<String> EXCEL_HEADER_CAL = new ArrayList<>(){{
+        add("Type");
+        add("CAL Log");
+        add("Reported");
+        add("Comments");
+    }};
+
 }

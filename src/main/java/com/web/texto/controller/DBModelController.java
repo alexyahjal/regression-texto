@@ -1,25 +1,25 @@
 package com.web.texto.controller;
 
 import com.web.texto.model.HttpReqModel;
-import com.web.texto.service.FTService;
+import com.web.texto.service.DBModelService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("ft")
-public class FTController {
+@RequestMapping("model")
+public class DBModelController {
 
-    Logger logger = LogManager.getLogger(FTController.class);
+    Logger logger = LogManager.getLogger(DBModelController.class);
 
     @Autowired
-    FTService fTService;
+    DBModelService dbModelService;
 
     @GetMapping("/suite-list")
-    public HttpReqModel getAllSuite(){
+    public HttpReqModel getAllSuite(@RequestBody HttpReqModel requestModel){
         logger.info("getAllSuite");
-        return fTService.getSuiteList();
+        return dbModelService.getSuiteList(requestModel);
     }
 
     /**
@@ -30,10 +30,10 @@ public class FTController {
      * }
         @param requestModel
      */
-    @PostMapping("/suite-init")
-    public HttpReqModel initSuite(@RequestBody HttpReqModel requestModel){
-        logger.info("initSuite, " + requestModel);
-        return fTService.initSuiteFromFile(requestModel);
+    @PostMapping("/suite-add-content")
+    public HttpReqModel addSuiteContentFromFilet(@RequestBody HttpReqModel requestModel){
+        logger.info("addSuiteContentFromFilet, " + requestModel);
+        return dbModelService.addSuiteContentFromFile(requestModel);
     }
 
     /**
@@ -47,7 +47,7 @@ public class FTController {
     @PostMapping("/suite-dump")
     public HttpReqModel suiteDumpToFile(@RequestBody HttpReqModel requestModel){
         logger.info("suiteDumpToFile, " + requestModel);
-        return fTService.dumpSuiteToFile(requestModel);
+        return dbModelService.dumpSuiteToFile(requestModel);
     }
 
     /**
@@ -60,7 +60,7 @@ public class FTController {
     @GetMapping("/suite-content")
     public HttpReqModel getSuiteContent(@RequestBody HttpReqModel requestModel){
         logger.info("getSuiteContent, " + requestModel);
-        return fTService.getSuiteContent(requestModel);
+        return dbModelService.getSuiteContent(requestModel);
     }
 
 }

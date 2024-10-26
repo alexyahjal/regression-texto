@@ -15,6 +15,7 @@ public class FileUtil {
     /**
      * Save the ExcelModel into a file as excel<br>
      * Require: <br>
+     *
      * @param excelModel . SheetNameList
      * @param path
      * @throws Exception
@@ -67,10 +68,10 @@ public class FileUtil {
                     );
                     row = sheet.getRow(ri);
                     if (isHeader) {
-                        excelModel.getColsInsheetMap().put(excelModel.getTotalSheet(), row.getLastCellNum() );
+                        excelModel.getColsInsheetMap().put(excelModel.getTotalSheet(), row.getLastCellNum());
                         isHeader = false;
                     }
-                    for (int ci = 0; ci < row.getLastCellNum(); ci++) {
+                    for (int ci = 0; ci < excelModel.getColsInsheetMap().get( excelModel.getTotalSheet() ); ci++) {
                         cell = row.getCell(ci);
                         if (cell == null) excelModel.getData().get(excelModel.getTotalSheet()).get(ri).add("");
                         else excelModel.getData().get(excelModel.getTotalSheet()).get(ri).add(getCellStringValue(cell));
