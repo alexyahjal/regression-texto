@@ -14,7 +14,7 @@ import java.util.List;
         allocationSize = 1,
         initialValue = 1
 )
-public class CALModel implements DBModel, Comparable {
+public class CALModel implements DBModel{
     @Id
     @GeneratedValue(
             strategy = GenerationType.TABLE,
@@ -60,6 +60,12 @@ public class CALModel implements DBModel, Comparable {
         this.comment = excelData.get(3);
         //
         this.suiteName = suiteName;
+    }
+
+    @Override
+    public boolean isModelEmpty() {
+        return this.type.isEmpty()
+                && this.calName.isEmpty();
     }
 
     @Override

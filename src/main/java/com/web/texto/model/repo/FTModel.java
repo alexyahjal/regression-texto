@@ -14,7 +14,7 @@ import java.util.List;
         allocationSize = 1,
         initialValue = 1
 )
-public class FTModel implements DBModel, Comparable{
+public class FTModel implements DBModel{
     @Id
     @GeneratedValue(
             strategy = GenerationType.TABLE,
@@ -63,6 +63,12 @@ public class FTModel implements DBModel, Comparable{
         this.comment = excelData.get(3);
         //
         this.suiteName = suiteName;
+    }
+
+    @Override
+    public boolean isModelEmpty() {
+        return this.testId.isEmpty()
+                &&this.testName.isEmpty();
     }
 
     @Override

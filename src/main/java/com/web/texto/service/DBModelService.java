@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.web.texto.util.Const.EXCEL_HEADER_CAL;
@@ -136,5 +137,23 @@ public class DBModelService {
         return reqModel;
     }
 
+    public HttpReqModel checkContent(){
+        HttpReqModel reqModel = new HttpReqModel();
+        try{
+            List<CALModel> calDeletedModel = new ArrayList<>();
+            List<FTModel> ftDeletedModel = new ArrayList<>();
+            calRepository.findAll().forEach( cal -> { if( cal.isModelEmpty() ){ calRepository.delete( cal ); calDeletedModel.add( cal ); }} );
+            fTRepository.findAll().forEach( ft -> {if(ft.isModelEmpty()){ fTRepository.delete( ft ); ftDeletedModel.add( ft );}});
+            reqModel.setResult(
+                    new HashMap<String,List>(){{
+                        put("CAL", calDeletedModel );
+                        put("FT" , ftDeletedModel );
+                    }}
+            );
+        }catch (Exception e){
+            reqModel.updateError( e.toString() );
+        }
+        return reqModel;
+    }
 
 }

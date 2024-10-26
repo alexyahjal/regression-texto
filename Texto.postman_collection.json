@@ -7,13 +7,13 @@
 	},
 	"item": [
 		{
-			"name": "Init Suite",
+			"name": "Suite - add content",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"file\" : \"C:\\\\Users\\\\Alex\\\\Desktop\\\\test.xls\",\r\n        \"suite_name\" : \"Suite Test B\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"file\" : \"C:\\\\Users\\\\Alex\\\\Desktop\\\\test_Suite_Dump.xls\",\r\n        \"suite_name\" : \"Suite Test A\",\r\n        \"model\" : \"CAL\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,15 +21,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/ft/suite-init",
+					"raw": "http://localhost:8080/model/suite-add-content",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"ft",
-						"suite-init"
+						"model",
+						"suite-add-content"
 					]
 				}
 			},
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"file\" : \"C:\\\\Users\\\\Alex\\\\Desktop\\\\test.xls\",\r\n        \"suite_name\" : \"Suite Test B\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"file\" : \"C:\\\\Users\\\\Alex\\\\Desktop\\\\test_Suite_Dump_FT.xls\",\r\n        \"suite_name\" : \"Suite Test A\",\r\n        \"model\" : \"FT\"\r\n\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,14 +50,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/ft/suite-dump",
+					"raw": "http://localhost:8080/model/suite-dump",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"ft",
+						"model",
 						"suite-dump"
 					]
 				}
@@ -65,7 +65,7 @@
 			"response": []
 		},
 		{
-			"name": "All Suite",
+			"name": "Suite - list",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -74,7 +74,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"file\" : \"C:\\\\Users\\\\Alex\\\\Desktop\\\\test.xls\",\r\n        \"suite_name\" : \"Suite Test B\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"model\" : \"CAL\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -82,14 +82,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/ft/suite-list",
+					"raw": "http://localhost:8080/model/suite-list",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"ft",
+						"model",
 						"suite-list"
 					]
 				}
@@ -106,7 +106,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"suite_name\" : \"Suite Test B\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"context\" : \r\n    {\r\n        \"suite_name\" : \"Suite Test A\",\r\n        \"model\" : \"CAL\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -114,15 +114,44 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/ft/suite-content",
+					"raw": "http://localhost:8080/model/suite-content",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"ft",
+						"model",
 						"suite-content"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DB check Content",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/model/check-content",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"model",
+						"check-content"
 					]
 				}
 			},

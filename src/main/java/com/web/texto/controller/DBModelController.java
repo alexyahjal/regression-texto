@@ -5,7 +5,13 @@ import com.web.texto.service.DBModelService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping("model")
@@ -61,6 +67,13 @@ public class DBModelController {
     public HttpReqModel getSuiteContent(@RequestBody HttpReqModel requestModel){
         logger.info("getSuiteContent, " + requestModel);
         return dbModelService.getSuiteContent(requestModel);
+    }
+
+    @PutMapping("/check-content")
+    public HttpReqModel checkContent(){
+        logger.info("checkContent");
+        return dbModelService.checkContent();
+
     }
 
 }
