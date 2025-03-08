@@ -1,9 +1,7 @@
 package com.example.demo.util.excel;
 
-public enum Cell {
-
+public enum CellEnum {
     DATA,
     COLOR,
     BACKGROUND_COLOR;
-
 }
