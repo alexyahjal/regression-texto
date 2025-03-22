@@ -1,7 +1,6 @@
-package com.example.demo;
+package com.web.texto.util.excel;
 
-import com.example.demo.util.excel.*;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,7 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.Fail.fail;
+import static org.junit.Assert.fail;
+
 
 public class ExcelTest {
     private final String desktopPath = "/home/alejandro/Escritorio/";
