@@ -31,7 +31,7 @@ public class ExcelModel {
     }
 
     public List<List<String>> getFirstSheet(){
-        return data.getFirst();
+        return data.get(0);
     }
 
     public void initForOneSheetOnly(){
